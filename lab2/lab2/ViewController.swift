@@ -18,12 +18,15 @@ class ViewController: UIViewController {
         if imageControl.selectedSegmentIndex==0{
             titleLabel.text="Subaru Forester (2010- 2012)"
             carImage.image=UIImage(named: "forester")
+             titleLabel.textColor = UIColor.red
         }else if imageControl.selectedSegmentIndex==1{
             titleLabel.text="Subaru Impreza (2012 - 2016)"
             carImage.image=UIImage(named: "impreza")
+             titleLabel.textColor = UIColor.blue
         }else if imageControl.selectedSegmentIndex==2{
             titleLabel.text="Mazda CX-7 (2016 - Present)"
             carImage.image=UIImage(named: "mazda")
+             titleLabel.textColor = UIColor.darkGray
         }
     }
     func updateText(){
