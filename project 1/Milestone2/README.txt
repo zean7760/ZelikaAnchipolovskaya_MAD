@@ -1,3 +1,5 @@
+My app will record what kind of workout you did when you did it with buttons and table.
+
 I want to implement what we learned about delegates, however I wasn't sure how. Originally, I wanted the user to be able to store data 
 in the app. I found several tutorials about core data and want to try and implement that.
 
