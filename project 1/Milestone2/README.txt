@@ -13,10 +13,11 @@ b. create a function that will save the data
 	
 4. saving from the two buttons
 	a. create constant
-	b. if tag==0 
+	b. 
+	if tag==0 
 		add cardio
 
-	    if tag == 1
+	if tag == 1
 		add strength
 	c. save new information with app delegate function 
 	d. call load function
