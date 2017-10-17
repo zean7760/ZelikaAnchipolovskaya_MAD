@@ -1,0 +1,10 @@
+References
+
+http://jamesonquave.com/blog/core-data-in-swift-tutorial-part-1/
+https://www.raywenderlich.com/173972/getting-started-with-core-data-tutorial-2
+http://www.brianadvent.com/build-simple-core-data-driven-ios-app
+https://www.youtube.com/watch?v=LhhW3xqhCzg
+
+images:
+https://www.google.com/search?tbs=sbi:AMhZZivSfOa-15lbHMLmel1PqdO5tR1ep-W8U1I27buaY5N5ap8Sb0sFRAook7WG4W-6zxMjURm4WoYfveoSHHVdTl_1hAvz-3PoVV800rDTnXoUc-jwZYhkxQHRVXxOM-nLFDHnp60TY3hxxGveeA-ln3lI3DdJZOCWvyJy3BCoMoK2aZL0fVsa4iG30utRabBusj98hcEYulHSa1EpRvnruxb3_1cYph0wtOJ4zOJn50kzvv0xoM3yoe0RchlPUeG1bhNAX239q5huAz6jEQqmTMhMU0AXwJ3cYlbT7asN4RM_16UJZ0dc1m7u6sMzX4m01uy47HtNuJ6yNsObsKIB8YqaDad1VDlDw&btnG=Search%20by%20image&hl=en
+https://www.google.com/search?tbs=sbi:AMhZZisZAac03ovCyIJfYjIMRN_1i0ouSKA_1T1UrJyGUFPPVm0OjMfliWkj5pylyGkVFWkZOKFmBjMOPlcS8vKxU85Jzeo9q3_1IRXM-_1qM0v7vPBuVHdK9UIbTe-j9ra6a7thKuxLV9QtxMZ26NoNCFwLZvUDZo2jph_1h_1uNNuF-PJ6R5cPvbNsbzWOfGTBxhuWmgDeRCzuUyACodqRO3pN2zZPhicxsXBpHen7FLbOrkzHm37pGgpjrq6-X1VfHAx6qDnjY8UUa_1WCdgTAhJyogxpVj-GMDWDVyfy2jDRQdHNXe41Hn5ftQaqCYKePYAlu4661kntkz3lLbrCGWpEw5OLJDpgRnClw&btnG=Search%20by%20image&hl=en
