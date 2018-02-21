@@ -13,6 +13,7 @@ class AddWorkoutViewController: UIViewController {
     @IBOutlet weak var workoutTextfield: UITextField!
     
     var addedWorkout = String ()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -21,7 +22,7 @@ class AddWorkoutViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "doneSegue"{
-            //only add a country if there is text in the textfield
+            //only add a workout if there is text in the textfield
             if ((workoutTextfield.text?.isEmpty) == false){
                 addedWorkout=workoutTextfield.text!
             }
@@ -32,6 +33,8 @@ class AddWorkoutViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    
     
 
     /*

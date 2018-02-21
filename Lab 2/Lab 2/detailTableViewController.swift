@@ -10,20 +10,7 @@ import UIKit
 
 class detailTableViewController: UITableViewController {
     
-    @IBAction func unwindSegue (_ segue:UIStoryboardSegue){
-        if segue.identifier=="doneSegue"{
-            let source = segue.source as! AddWorkoutViewController
-            
-            //only add a country if there is text in the textfield
-            if ((source.addedWorkout.isEmpty) == false){ //add country to the array
-                workouts.append(source.addedWorkout)
-                tableView.reloadData()
-                let chosenWorkout = workoutListDetail.workouts[selectedWorkout]
-                //add country to our data model instance
-                workoutListDetail.workoutData[chosenWorkout]?.append(source.addedWorkout)
-            }
-        }
-    }
+    
     var workouts = [String]()
     var selectedWorkout = 0
     
@@ -125,7 +112,20 @@ class detailTableViewController: UITableViewController {
         return true
     }
     
-
+    @IBAction func unwindSegue (_ segue:UIStoryboardSegue){
+        if segue.identifier=="doneSegue"{
+            let source = segue.source as! AddWorkoutViewController
+            
+            //only add a country if there is text in the textfield
+            if ((source.addedWorkout.isEmpty) == false){ //add country to the array
+                workouts.append(source.addedWorkout)
+                tableView.reloadData()
+                let chosenWorkout = workoutListDetail.workouts[selectedWorkout]
+                //add country to our data model instance
+                workoutListDetail.workoutData[chosenWorkout]?.append(source.addedWorkout)
+            }
+        }
+    }
  
 
     /*

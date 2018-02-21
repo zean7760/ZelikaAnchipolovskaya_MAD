@@ -45,7 +45,6 @@
         <!--Detail Table View Controller-->
         <scene sceneID="2ws-NF-hYc">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="9Tu-3o-QyE" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="4iO-zI-UvE" customClass="detailTableViewController" customModule="Lab_2" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="R11-ZC-SnS">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -74,6 +73,7 @@
                         </barButtonItem>
                     </navigationItem>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9Tu-3o-QyE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1967" y="71"/>
         </scene>
@@ -123,7 +123,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="workoutTextfield" destination="7Md-Dp-0dX" id="34A-gO-cdh"/>
+                        <outlet property="workoutTextfield" destination="MZH-eH-5KY" id="3Jy-zZ-lHQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S3h-C5-3mO" userLabel="First Responder" sceneMemberID="firstResponder"/>
