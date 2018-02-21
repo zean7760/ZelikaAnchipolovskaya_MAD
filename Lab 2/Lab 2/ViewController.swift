@@ -31,7 +31,7 @@ class ViewController: UITableViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "workoutseque" {
+        if segue.identifier == "workoutsegue" {
             let detailVC = segue.destination as! detailTableViewController
             let indexPath = tableView.indexPath(for: sender as! UITableViewCell)!
             
