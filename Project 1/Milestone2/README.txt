@@ -4,11 +4,11 @@ I want to another iteration of the Exercise More App I worked on last semester. 
 
 1. I will not be using core data this time, but the app will be persistent
 	from the notes I will implement this code:
-'''
-Data Persistence (countries data)
+``` Swift
+//Data Persistence (countries data)
 
-We can handle all the data persistence in ViewController.swift
-Add a constant for the filename we’ll write to.
+//We can handle all the data persistence in ViewController.swift
+//Add a constant for the filename we’ll write to.
 
 let kfilename = "data1.plist"
 
@@ -20,12 +20,11 @@ Update viewDidLoad()
  //subscribe to the UIApplicationWillResignActiveNotification
 notification
 
- NotificationCenter.default.addObserver(self, selector:
-#selector(ViewController.applicationWillResignActive(_:)), name:
+ NotificationCenter.default.addObserver(self, selector:#selector(ViewController.applicationWillResignActive(_:)), name:
 NSNotification.Name.UIApplicationWillResignActive, object: app)
 
-Add the method called when the notification is received. @objc is needed in Swift 4 to 
-specifically expose the method to Objective-C
+//Add the method called when the notification is received. @objc is needed in Swift 4 to 
+//specifically expose the method to Objective-C
  
 //called when the UIApplicationWillResignActiveNotification notification
 is posted
