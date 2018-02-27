@@ -8,13 +8,33 @@
 
 import UIKit
 
-class detailTableViewController: UITableViewController {
+class detailTableViewController: UITableViewController, UISearchResultsUpdating{
     
+    var allwords = [String]()
+    var filteredWords = [String]()
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        let searchString = searchController.searchBar.text //search string
+        filteredWords.removeAll(keepingCapacity: true) //removes all elements the search string
+        if searchString?.isEmpty == false {
+            let searchfilter: (String) -> Bool = { name in
+                //look for the search string as a substring of the word
+                let range = name.range(of: searchString!,options: .caseInsensitive)
+                return range != nil   //returns true if the value matches and false if there’s no match
+            } //end closure
+        
+            let matches = allwords.filter(searchfilter)
+            filteredWords.append(contentsOf: matches)
+        }
+        tableView.reloadData() //reload table data with search results
+    }
     
     var workouts = [String]()
     var selectedWorkout = 0
     
     var workoutListDetail = Workouts()
+    
+    
 
    
     override func viewDidLoad() {
@@ -25,6 +45,8 @@ class detailTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the //navigation bar for this view controller.
         //self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "CellIdentifier")
     }
     
     override func viewWillAppear(_ animated: Bool) {
