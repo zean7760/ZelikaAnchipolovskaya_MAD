@@ -1,4 +1,4 @@
-My app will allow users to log their workouts
+##My app will allow users to log their workouts
 
 I want to another iteration of the Exercise More App I worked on last semester. This time will implement some of the suggestions that I received when I presented. My classmates said they want to see a journal aspect added, and all of this will be in a multi view app instead of the single view.
 
@@ -17,8 +17,7 @@ Update viewDidLoad()
  //application instance
  let app = UIApplication.shared
 
- //subscribe to the UIApplicationWillResignActiveNotification
-notification
+ //subscribe to the UIApplicationWillResignActiveNotification notification
 
  NotificationCenter.default.addObserver(self, selector:#selector(ViewController.applicationWillResignActive(_:)), name:
 NSNotification.Name.UIApplicationWillResignActive, object: app)
@@ -26,11 +25,9 @@ NSNotification.Name.UIApplicationWillResignActive, object: app)
 //Add the method called when the notification is received. @objc is needed in Swift 4 to 
 //specifically expose the method to Objective-C
  
-//called when the UIApplicationWillResignActiveNotification notification
-is posted
+//called when the UIApplicationWillResignActiveNotification notification is posted
  
-//all notification methods take a single NSNotification instance as
-their argument
+//all notification methods take a single NSNotification instance as their argument
  
 @objc func applicationWillResignActive(_ notification: NSNotification){
  //get path for data file
@@ -58,7 +55,8 @@ do {
  print(error)
  }
 }
-'''
+
+```
 
 2. in view controller:
 	a.  create a plist that stores the type of exercise
