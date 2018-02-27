@@ -1,4 +1,4 @@
-##My app will allow users to log their workouts
+## My app will allow users to log their workouts
 
 I want to another iteration of the Exercise More App I worked on last semester. This time will implement some of the suggestions that I received when I presented. My classmates said they want to see a journal aspect added, and all of this will be in a multi view app instead of the single view.
 
