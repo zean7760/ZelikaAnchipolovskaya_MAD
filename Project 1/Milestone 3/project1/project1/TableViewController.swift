@@ -11,6 +11,7 @@ import Firebase
 
 class TableViewController: UITableViewController {
     
+    
     var ref: DatabaseReference!
     var workouts = [Exercise]()
  
@@ -19,7 +20,7 @@ class TableViewController: UITableViewController {
         
         ref = Database.database().reference()
         
-        ref.observe(DataEventType.value, with: {snapshot in self.workouts=[]
+        ref.child("Workouts Recorded").observe(DataEventType.value, with: {snapshot in self.workouts=[]
             
             for item in snapshot.children.allObjects as! [DataSnapshot]{
                 if let workoutValue = item.value as? [String: String],
@@ -42,6 +43,8 @@ class TableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
+    
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -67,6 +70,7 @@ class TableViewController: UITableViewController {
         let Workout = workouts[indexPath.row]
         cell.textLabel!.text = Workout.type
         print("Workout: ", Workout)
+        cell.detailTextLabel?.text = Workout.time
         
         // Configure the cell...
         
@@ -104,14 +108,31 @@ class TableViewController: UITableViewController {
             let source = segue.source as! ViewController
             if source.addedNote.isEmpty == false{
                 
-                let newWorkout = Exercise(newtype: source.addedType ,newnotes: source.addedNote, newsets: source.addedSets, newreps: source.addedReps)
+                let newWorkout = Exercise(newtype: source.addedType ,newnotes: source.addedNote, newsets: source.addedSets, newreps: source.addedReps, newtime: source.addedTime)
                 workouts.append(newWorkout)
-                let newWorkDict = ["type": source.addedType,"sets": source.addedSets, "reps": source.addedReps, "notes": source.addedNote]
+                let newWorkDict = ["type": source.addedType,"sets": source.addedSets, "reps": source.addedReps, "notes": source.addedNote, "time": source.addedTime]
                 
                 let workoutref = ref.child("Workouts Recorded").childByAutoId()
                 workoutref.setValue(newWorkDict)
                 
             }
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "detailsegue" {
+            let detailVC = segue.destination as! DetailViewController
+            let indexPath = tableView.indexPath(for: sender as! UITableViewCell)!
+            let myWorkout = workouts[indexPath.row]
+            
+            detailVC.title = myWorkout.time
+            detailVC.mySet = myWorkout.sets
+            detailVC.myReps = myWorkout.reps
+            detailVC.myType = myWorkout.type
+            detailVC.myNotes = myWorkout.notes
+            
+            
+            
         }
     }
 

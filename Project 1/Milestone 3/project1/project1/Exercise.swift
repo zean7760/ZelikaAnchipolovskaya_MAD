@@ -14,12 +14,14 @@ class Exercise: Codable {
     var sets: String
     var reps: String
     var notes: String
+    var time: String
     
     
-    init(newtype: String, newnotes: String, newsets: String, newreps: String) {
+    init(newtype: String, newnotes: String, newsets: String, newreps: String, newtime: String) {
         type = newtype
         sets = newsets
         reps = newreps
         notes = newnotes
+        time = newtime
     }
 }
