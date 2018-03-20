@@ -12,9 +12,9 @@ import Firebase
 
 class TableViewController: UITableViewController {
     
-    
-    var notes = [Things]()
     var ref: DatabaseReference!
+
+    var notes = [Things]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,15 +23,30 @@ class TableViewController: UITableViewController {
         ref.child("notes recorded").observe(DataEventType.value, with: {snapshot in self.notes=[]
             
             for item in snapshot.children.allObjects as! [DataSnapshot]{
+//
+//                let n = item.value as? [String: String]
+//                print(n)
+//                //do {
+//                let j = try? JSONEncoder().encode(n)
+////                } catch let error {
+////                    print("encode error")
+////                    print(error)
+////                }
+//                do {
+//                    let nn = try? JSONDecoder().decode(Things.self, from: j!)
+//                } catch let error2 {
+//                    print("decode error")
+//                    print(error2)
+//                }
+//                //print(nn)
                 if let noteValue = item.value as? [String: String],
-                    
-                    let json = try? JSONEncoder().encode(noteValue),
+                   let json = try? JSONEncoder().encode(noteValue),
                     let newNote = try? JSONDecoder().decode(Things.self, from: json)
-                    
                 {
-                    self.notes.append(newNote)
-                    print("item..:", item)
-                    print("adding to array: ", newNote)
+                    print(item.value)
+                   self.notes.append(newNote)
+//                    print("item..:", item)
+//                    print("adding to array: ", newNote)
                 }
             }
             self.tableView.reloadData()
@@ -58,6 +73,7 @@ class TableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
+        print("notes counting: ", notes.count)
         return notes.count
     }
 
@@ -79,7 +95,7 @@ class TableViewController: UITableViewController {
             if source.addednote1.isEmpty == false {
                 let newDay = Things(newnote1: source.addednote1, newnote2: source.addednote2, newnote3: source.addednote3,newtime: source.addedTime)
                 notes.append(newDay)
-                let newNotesDict = ["note1": source.addednote1, "note2": source.addednote2, "note3": source.addednote3, "time": source.addedTime]
+                let newNotesDict = ["thing1": source.addednote1, "thing2": source.addednote2, "thing3": source.addednote3, "time": source.addedTime]
                 let goodThingsRef = ref.child("notes recorded").childByAutoId()
                 goodThingsRef.setValue(newNotesDict)
                 
@@ -105,6 +121,19 @@ class TableViewController: UITableViewController {
             noteref.ref.removeValue()
             tableView.deleteRows(at: [indexPath], with: .fade)
          
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "detailsegue" {
+            let detailVC = segue.destination as! ViewController
+            let indexPath = tableView.indexPath(for: sender as! UITableViewCell)!
+            let myNotes = notes[indexPath.row]
+            
+            detailVC.title = myNotes.time
+            detailVC.mynote1 = myNotes.thing1
+            detailVC.mynote2 = myNotes.thing2
+            detailVC.mynote3 = myNotes.thing3
         }
     }
 
